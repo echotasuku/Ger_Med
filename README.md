@@ -1,43 +1,13 @@
 # Sistema de Gestão de Medicamentos
 
-## Descrição
-É uma plataforma em desenvolvimento que visa simplificar e aprimorar o controle de medicamentos. Este sistema oferece funcionalidades essenciais para garantir uma gestão eficiente do estoque de medicamentos, permitindo que os usuários registrem medicamentos com informações detalhadas sobre nome, descrição, quantidade em estoque, data de validade e condições de armazenamento.
+Uma plataforma em desenvolvimento para melhorar e facilitar o controle de medicamentos dentro de uma unidade de saúde. A solução proposta tem como objetivo garantir uma gestão eficiente do estoque de medicamentos, oferecendo ferramentas que automatizam o registro e a distribuição de medicamentos, minimizando erros e assegurando conformidade com as normas de saúde.
 
-O sistema organiza categorias específicas para diferentes tipos de medicamentos, gerencia fornecedores e registra as distribuições de medicamentos mediante a apresentação de receitas médicas. Além disso, o sistema alerta sobre medicamentos próximos da validade e com baixo estoque, garantindo a conformidade e eficiência na gestão dos medicamentos.
+A plataforma permitirá o gerenciamento detalhado dos medicamentos, armazenando informações como nome, descrição, quantidade em estoque, data de validade, categorias e condições de armazenamento. Além disso, o sistema automatizará alertas sobre medicamentos próximos ao vencimento e com baixo estoque, ajudando na tomada de decisões para reposição de produtos de forma proativa.
 
-## Requisitos Funcionais
+Outro ponto crucial é a integração com o processo de distribuição de medicamentos mediante apresentação de receitas médicas, assegurando que todos os registros das retiradas sejam rastreáveis. O sistema também incluirá a gestão de fornecedores e facilitará a emissão de relatórios sobre o estoque, proporcionando uma visão completa e atualizada para os gestores.
 
-| ID   | Descrição                                                                                         | Prioridade | Dependência |
-|------|---------------------------------------------------------------------------------------------------|------------|-------------|
-| RF01 | O sistema permite que o farmacêutico faça o cadastro de novos medicamentos, incluindo nome, descrição, quantidade, validade, categorias, etc. | Alta       | -           |
-| RF02 | O sistema permite ao farmacêutico a atualização da quantidade em estoque de medicamentos.          | Alta       | RF01        |
-| RF03 | O sistema permite ao farmacêutico fazer o gerenciamento das retiradas de medicamentos, garantindo a rastreabilidade completa, incluindo data e receita médica. | Alta | RF01 |
-| RF04 | O sistema permite ao farmacêutico gerar relatórios detalhados sobre o estoque, incluindo dados sobre validade e quantidade dos medicamentos. | Média | RF02 |
-| RF05 | O sistema realiza a autenticação dos usuários, permitindo diferentes níveis de acesso. O farmacêutico terá acesso completo, enquanto o funcionário comum terá acesso restrito. | Alta | - |
-| RF06 | O sistema permite que o farmacêutico e o administrador façam o cadastro e gerenciamento de fornecedores, incluindo informações de contato e produtos fornecidos. | Baixa | RF01 |
-| RF07 | O sistema permite que o farmacêutico categorize os medicamentos, facilitando a organização e a busca de medicamentos específicos no sistema. | Média | RF01 |
-| RF08 | O sistema permite que o farmacêutico controle a validade dos medicamentos, notificando-os sobre produtos próximos do vencimento. | Alta | RF01, RF02 |
-| RF09 | O sistema permite que o farmacêutico e o funcionário comum anexe fotos de receitas médicas ao realizar retiradas de medicamentos, garantindo a documentação apropriada. | Média | RF03 |
-| RF10 | O sistema permite que o farmacêutico e o usuário comum consultem e listem os medicamentos mais procurados por mês, utilizando uma API externa para obter esses dados. | Média | RF01 |
+## Iteração-I: Prova de Conceito - Controle de Estoque
 
-## Regras de Negócio
+Nesta primeira fase, como prova de conceito e viabilidade, o sistema se concentrará no controle básico do estoque de medicamentos. Será possível cadastrar medicamentos com suas respectivas quantidades, datas de validade e categorias, além de gerar alertas automáticos para medicamentos com validade próxima do vencimento.
 
-| ID   | Descrição                                                                                         |
-|------|---------------------------------------------------------------------------------------------------|
-| RN01 | O sistema deve estabelecer diferentes níveis de acesso para os usuários. Farmacêuticos terão acesso completo, enquanto funcionários comuns terão acesso limitado. |
-| RN02 | Ao registrar a entrada ou saída de medicamentos, o sistema deve verificar se há estoque suficiente. Movimentações que resultem em estoque negativo não devem ser permitidas. |
-| RN03 | Somente usuários autorizados, como os Farmacêuticos, têm permissão para modificar os medicamentos. Isso garante que alterações nos valores sejam realizadas de maneira controlada e evita ajustes não autorizados. |
-| RN04 | O sistema deve monitorar a validade dos medicamentos e notificar os administradores quando um produto estiver próximo do vencimento. |
-| RN05 | Todas as retiradas de medicamentos devem ser registradas, incluindo data, quantidade, junto com a receita do medicamento e o usuário responsável. |
-| RN06 | Relatórios sobre o estoque atual, medicamentos próximos ao vencimento e histórico de movimentações devem ser gerados pelo sistema. |
-| RN07 | O sistema deve permitir anexar fotos das receitas médicas ao registrar retiradas de medicamentos. |
-| RN08 | O sistema deve manter um registro dos medicamentos mais procurados por mês e disponibilizar essa informação através de uma API externa. |
-
-## Requisitos Não Funcionais
-
-| ID   | Descrição                                                                                         | Categoria  | Prioridade  |
-|------|---------------------------------------------------------------------------------------------------|------------|-------------|
-| RNF01 | O sistema utilizará o framework Laravel para o desenvolvimento do backend.                        | Manutenibilidade / Implementação | Alta       |
-| RNF02 | O sistema utilizará o framework React.js para a camada de front-end.                              | Manutenibilidade / Implementação | Alta       |
-| RNF03 | O backend será implementado seguindo os princípios de uma arquitetura de API Restful para facilitar a comunicação com o frontend. | Usabilidade / Facilidade de aprendizado | Alta |
-| RNF04 | O sistema deve integrar a autenticação por meio da API do Google Login para acesso ao sistema.    | Usabilidade / Segurança | Alta |
+A principal funcionalidade nesta fase será o gerenciamento das retiradas de medicamentos com o registro obrigatório de receitas médicas, garantindo que todas as movimentações sejam devidamente documentadas.
